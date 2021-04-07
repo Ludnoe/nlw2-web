@@ -1,5 +1,6 @@
 import React from 'react';
 
+import './assets/styles/global.css';
 //JSX = JavaScript + XML (HTML dentro do JS)
 
 function App() {
