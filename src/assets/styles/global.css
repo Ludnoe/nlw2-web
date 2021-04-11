@@ -45,7 +45,8 @@ body,
 input,
 button,
 textarea {
-    font: 500 1.6rem Poppins; /*pega a font-size do elemento e coloca 60% do font-size*/
+    font: 500 1.6rem Poppins;     /*pega a font-size do elemento e coloca 60% do font-size*/
+    color: var( --color-text-base);
 }
 
 .container {
