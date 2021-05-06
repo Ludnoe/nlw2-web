@@ -1,4 +1,4 @@
-# Notas
+## Notas de estudo
 
   (00:24) Instalação das dependencias do projeto 
     - Criação dapasta 
@@ -35,15 +35,15 @@
 
 (00:51:00) Casos de uso:
 
-# Funcionalidades
+### Funcionalidades
 
-## Conexões
+### Conexões
 
   - Rota para listar o total de conexões realizadas;
   - Rota pra criar uma nova conexão;
 
-## Aulas
-  - Rota pra criar uma aula;
+### Aulas
+  - Rota pra criar uma aula; (01:25:00)
   - Rota pra listar aulas;
     - Filtrar por matéria, dia da semana e horárioP;
 
@@ -64,3 +64,11 @@
   (01:07:00) subescrevendo dois comandos:
     - pegando os comandos: yarn knex
     -> package.json
+  (01:07:45) Criando as migrations
+  (01:14:37) 'yarn knex.migrate' = criando o banco de dados: database.sqlite
+    - visualização com a exteção do Vscode sqlite
+
+  (01:25:00) Criando as rotas de aula
+      (:28:00) rota 'classes'
+      (:32:40) criando a aula dentro do banco de dados
+      (:48:23) -Perfeito. Andpoint
