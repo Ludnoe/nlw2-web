@@ -68,7 +68,15 @@
   (01:14:37) 'yarn knex.migrate' = criando o banco de dados: database.sqlite
     - visualização com a exteção do Vscode sqlite
 
-  (01:25:00) Criando as rotas de aula
+  (01:25:00) Criando as rotas para criar aula /routes.ts
       (:28:00) rota 'classes'
       (:32:40) criando a aula dentro do banco de dados
-      (:48:23) -Perfeito. Andpoint
+      (:48:23) -Perfeito. Melhorias na correção de erro 
+                -criação de transaction TRX
+                  const trx = await db.transaction();
+                  ...
+                  await trx.commit();
+                -try{}tentar executar o codigo e retornar msg de erro caso ocorra
+      *Aula criada*
+  (01:52:55) Criando rotas pra listar aula 
+      (:53:45) pasta controllers
