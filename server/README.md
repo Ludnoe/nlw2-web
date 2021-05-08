@@ -80,3 +80,5 @@
       *Aula criada*
   (01:52:55) Criando rotas pra listar aula 
       (:53:45) pasta controllers
+      (:57:13) listagem com os filtros
+  (02:14:09) listagem com filtros concluida
