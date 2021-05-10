@@ -15,12 +15,12 @@ export default class ClassesController {
 
     const subject = filters.subject as string;
     const week_day = filters.week_day as string;
-    const time = filters.subject as string;
+    const time = filters.time as string;
 
     if (!filters.week_day || !filters.subject || !filters.time) {
       return response.status(400).json({
         error: 'Missing filters to search classes'
-      })
+      });
     }
 
     const timeInMinutes = convertHoursToMinutes(time);
@@ -31,12 +31,13 @@ export default class ClassesController {
           .from('class_schedule')
           .whereRaw('`class_schedule`.`class_id` = `classes`.`id`')
           .whereRaw('`class_schedule`.`week_day` = ??', [Number(week_day)])
-          //.whereRaw('`class_schedule`.`from` <= ??', [timeInMinutes])
-          //.whereRaw('`class_schedule`.`to` > ??', [timeInMinutes])
+          .whereRaw('`class_schedule`.`from` <= ??', [timeInMinutes])
+          .whereRaw('`class_schedule`.`to` > ??', [timeInMinutes])
       })
       .where('classes.subject', '=', subject )
       .join('users', 'classes.user_id', '=', 'users.id')
       .select(['classes.*', 'users.*']);
+      
 
     return response.json(classes);
   }
@@ -78,7 +79,7 @@ export default class ClassesController {
           week_day: scheduleItem.week_day,
           from: convertHoursToMinutes(scheduleItem.from),
           to: convertHoursToMinutes(scheduleItem.to),
-        }
+        };
       })
     
       await trx('class_schedule').insert(classSchedule);
@@ -90,7 +91,7 @@ export default class ClassesController {
       await trx.rollback();
   
       return response.status(400).json({ 
-        error: 'Unexpected error while creatin new class'
+        error: 'Unexpected error while creating new class'
       })
     }
   }

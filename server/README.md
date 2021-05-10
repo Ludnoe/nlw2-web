@@ -65,7 +65,7 @@
     - pegando os comandos: yarn knex
     -> package.json
   (01:07:45) Criando as migrations
-  (01:14:37) 'yarn knex.migrate' = criando o banco de dados: database.sqlite
+  (01:14:37) 'yarn knex:migrate' = criando o banco de dados: database.sqlite
     - visualização com a exteção do Vscode sqlite
 
   (01:25:00) Criando as rotas para criar aula /routes.ts
