@@ -82,3 +82,4 @@
       (:53:45) pasta controllers
       (:57:13) listagem com os filtros
   (02:14:09) listagem com filtros concluida
+  (02:24:00) instalação do cors(yarn add cors)//permite aplicaações em endereços diferentes acessem a Api
