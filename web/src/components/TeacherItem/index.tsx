@@ -1,35 +1,56 @@
 import React from 'react';
 
 import wathsappIcon from '../../assets/images/icons/whatsapp.svg'
+import api from '../../services/api';
 
 import './styles.css';
 
-function TeacherItem() {
+export interface Teacher {
+  id: number;
+  avatar: string;
+  bio: string;
+  cost: number;
+  name: string;
+  subject: string;
+  whatsapp: string;
+  }
+interface TeacherItemProps {
+  teacher: Teacher;
+}
+
+const TeacherItem: React.FC<TeacherItemProps> = ({teacher}) =>  {
+  function createNewConnection(){
+    api.post('connections', {
+      user_id: teacher.id,
+    })
+  }
+
+
   return(
     <article className="teacher-item">
         <header>    
-          <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Bertoldo_Klinger_perfil_1930s.jpg" alt="Bertoudo Jesus"/>
+          <img src={teacher.avatar} alt={teacher.name}/>
           <div>
-              <strong>Bertoudo Jesus</strong>
-              <span>História</span>
+              <strong>{teacher.name}</strong>
+              <span>{teacher.subject}</span>
           </div>
         </header>
 
-        <p>
-          Ele estudou na University College School e no King's College London antes de entrar no Caius College, Cambridge em 1867. 
-          <br/><br />
-          Migrando para o St John's College, ele ganhou seu B.A. com uma primeira classe no Natural Sciences Tripos e obteve uma bolsa universitária – a primeira em seu assunto – em 1873.  
-        </p>
+        <p>{teacher.bio}</p>
 
         <footer>
           <p>
             Preço/hora
-            <strong>R$ 5,00</strong>  
+            <strong>R$ {teacher.cost}</strong>  
           </p>
-          <button type="button">
+          <a 
+            target="_blank" 
+            onClick={createNewConnection} 
+            href={`https://wa.me/${teacher.whatsapp}`}>
+              
             <img src={wathsappIcon} alt="Whatsapp"/>
             Entrar em contato
-          </button>
+          </a>
         </footer>
     </article>
   );
