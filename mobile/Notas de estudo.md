@@ -40,8 +40,9 @@
                                 3 - yarn add @react-navigation/stack  ->> para o tipo de navegação
                                 Noutra Aba: Tab navigations:
                                 4 - yarn add @react-navigation/bottom-tabs
+                Import {RectButton} from 'react-native-gesture-handler' -> adaptar um efeito de click ao sistema utilizado. Opção pra substituir o TouchableOpacity
         (01:04:55) - Página de "Dar aulas"*
-- Páginas internas *
+        (01:14:47) - Páginas internas *
 - Navegação em abas *
 - Componente PageHeader *
 - Lista de professores *
