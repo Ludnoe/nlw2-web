@@ -43,6 +43,9 @@
                 Import {RectButton} from 'react-native-gesture-handler' -> adaptar um efeito de click ao sistema utilizado. Opção pra substituir o TouchableOpacity
         (01:04:55) - Página de "Dar aulas"*
         (01:14:47) - Páginas internas *
-- Navegação em abas *
-- Componente PageHeader *
+                (:20:05) - encadeamento de routers(roteamento dentro do outro)
+                         - Navegação em abas
+                (:25:30)  icones nas abas: -> import {Ionicons} from '@expo/vector-icons'
+        (01:29:30) - Componente PageHeader 
+                        -resizeMode="contain" -> mantem o tamanho contido no tamanho do elemento que tem em volta
 - Lista de professores *
