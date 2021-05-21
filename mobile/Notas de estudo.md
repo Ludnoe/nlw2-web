@@ -1,18 +1,18 @@
 4° Dia: Estruturando app mobile
 
-*- (00:00:00) Criando projeto com Expo *
+- (00:00:00) Criando projeto com Expo *
 	    -Depis de instalado o Expo: yarn global add expo-cli ou npm install expo-cli --global 
 	    -Entrar na pasta pra criar o projeto: expor init mobile (mobile = nome da pasta que vai   conter todos as dependecias do projeto)
 		  -Choose a template: » blank (TypeScript)
 
-*- (00:06:05) Executando aplicação *
+- (00:06:05) Executando aplicação *
               - yarn start
 
-*- (00:11:30)Particularidade de React Native *
+- (00:11:30)Particularidade de React Native *
   - Elementos
   - Estilização
 
-*- (00:19:44) Estruturando Landing Page *
+- (00:19:44) Estruturando Landing Page *
               - ciração da pasta 'src' e inclusão da pasta imagens
     Obs.: -Por padrão o ReactNative não lê SVG. Necesssário a instalção de um pacote: 
             - expo install react-native-svg
@@ -48,4 +48,15 @@
                 (:25:30)  icones nas abas: -> import {Ionicons} from '@expo/vector-icons'
         (01:29:30) - Componente PageHeader 
                         -resizeMode="contain" -> mantem o tamanho contido no tamanho do elemento que tem em volta
-- Lista de professores *
+
+5º Dia: Finalizando app mobile
+        ->(00:03:20) Lista de professores 
+                     (:18:20) - Scroll   
+        ->(00:22:50) Lista de favoreitos
+        -> Filtro de proferssores
+        -> conectando com  a API
+                • toal de conexões
+                • Lista de professores
+        -> Adicionr e remover Favoritos
+        -> Listando Favoritos
+        ► Desafios
