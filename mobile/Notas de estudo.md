@@ -53,8 +53,11 @@
         ->(00:03:20) Lista de professores 
                      (:18:20) - Scroll   
         ->(00:22:50) Lista de favoreitos
-        -> Filtro de proferssores
-        -> conectando com  a API
+        ->(00:24:09) Filtro de proferssores
+                Dica de Selector para input
+                        Picker (react-native-picker) -> do Expor
+                (:33:24) Ocultando os filtros com icone
+        ->(00:42:09) conectando com  a API
                 • toal de conexões
                 • Lista de professores
         -> Adicionr e remover Favoritos
