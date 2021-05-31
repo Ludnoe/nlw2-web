@@ -1,7 +1,7 @@
 4° Dia: Estruturando app mobile
 
 - (00:00:00) Criando projeto com Expo *
-	    -Depis de instalado o Expo: yarn global add expo-cli ou npm install expo-cli --global 
+	    -Depois de instalado o Expo: yarn global add expo-cli ou npm install expo-cli --global 
 	    -Entrar na pasta pra criar o projeto: expor init mobile (mobile = nome da pasta que vai   conter todos as dependecias do projeto)
 		  -Choose a template: » blank (TypeScript)
 
@@ -58,8 +58,15 @@
                         Picker (react-native-picker) -> do Expor
                 (:33:24) Ocultando os filtros com icone
         ->(00:42:09) conectando com  a API
-                • toal de conexões
-                • Lista de professores
-        -> Adicionr e remover Favoritos
+                        - yarn add axios (pra fazer a ligação com a Api)
+                                • Obs.: Nessessario entrr na pasta do server e deixar      rodando (yarn start) pra fazer a ligação com a Api
+                                • Verificar com o insomnia
+                (:45:40) total de conexões
+                (:46:00) Lista de professores
+                (:57:30) Contato whatsapp
+        ->(01:00:45) Adicionar e remover Favoritos
+                Banco de dados dentro do dispositivo:
+                -> expo install @react-native-community/async-storage
         -> Listando Favoritos
         ► Desafios
+

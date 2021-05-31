@@ -1,6 +1,7 @@
-import React from 'react';
-import { Image, View, Text} from 'react-native';
+import React, { useState } from 'react';
+import { Image, View, Text, Linking} from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
+import AsyncStorage from '@react-native-community/async-storage';
 
 import heartOutlineIcon from '../../assets/images/icons/heart-outline.png';
 import unfavoriteIcon from '../../assets/images/icons/unfavorite.png';
@@ -8,40 +9,86 @@ import whatsappIcon from '../../assets/images/icons/whatsapp.png';
 
 import styles from './styles';
 
-function TeacherItem(){
+
+export interface Teacher {
+  id: number;
+  avatar: string;
+  bio: string;
+  cost: number;
+  name: string;
+  subject: string;
+  whatsapp: string;
+  }
+
+interface TeacherItemProps {
+  teacher: Teacher;
+  favorited: boolean;
+}
+
+const TeacherItem: React.FC<TeacherItemProps> = ({ teacher, favorited }) => {
+  const [isFavorited, setIsFavorited] = useState(favorited);
+
+  function handleLinkToWhatsapp (){
+    Linking.openURL(`whatsapp://send?phone=${teacher.whatsapp}`)
+  }
+
+  async function handleToggleFavorite(){
+    if (isFavorited) {
+      // remove from favorites
+    } else {
+      // add to favorites
+      const favorites = await AsyncStorage.getItem('favorites');
+      
+      let favoritesArray = [];
+
+      if (favorites) {
+        favoritesArray = JSON.parse(favorites);
+      }
+
+      favoritesArray.push(teacher);
+
+      setIsFavorited(true);
+      await AsyncStorage.setItem('favorites', JSON.stringify(favoritesArray));
+    }
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.profile}>
         <Image 
           style={styles.avatar} 
-          source = {{ uri:'https://avatars.githubusercontent.com/u/5804067?v=4'}}
+          source = {{ uri: teacher.avatar}}
         />
 
         <View style={styles.profileInfo}>
-          <Text style={styles.name}>Denis Marcedo</Text>
-          <Text style={styles.subject}>Matemática</Text>
+          <Text style={styles.name}>{teacher.name}</Text>
+          <Text style={styles.subject}>{teacher.subject}</Text>
         </View>
       </View>
 
-      <Text style={styles.bio}>
-        Mestre e estudioso atrapalhado nos calculos.
-        {'\n'}{'\n'}
-        Maluco por matemática, vai fazer uma cofusão na sua cabeça e explica um simples calculo de maneira que vai deixar você louco e comer o o livro de tanta raiva.
-      </Text>
+      <Text style={styles.bio}> {teacher.bio} </Text>
 
       <View style={styles.footer}>
         <Text style={styles.price}>
           Preço/hora {'   '}
-          <Text style={styles.priceValue}>R$ 20,00</Text>
+          <Text style={styles.priceValue}>R$ {teacher.cost}</Text>
         </Text>
 
         <View style={styles.buttonsContainer}>
-          <RectButton style={[styles.favoriteButton, styles.favotited]}>
-            {/*<Image source={heartOutlineIcon}/>*/}
-            <Image source={unfavoriteIcon}/>
+          <RectButton 
+            onPress={handleToggleFavorite}
+            style={[
+              styles.favoriteButton, 
+              isFavorited ? styles.favotited : {},
+            ]}
+          >
+            { isFavorited 
+              ? <Image source={unfavoriteIcon}/>
+              : <Image source={heartOutlineIcon}/> 
+            }                        
           </RectButton>
 
-          <RectButton style={styles.contactButton}>
+          <RectButton onPress={handleLinkToWhatsapp} style={styles.contactButton}>
             <Image source={whatsappIcon}/>
             <Text style={styles.contactButtonText}>Entrar em contato</Text>
           </RectButton>
